@@ -1,0 +1,78 @@
+#!/bin/bash
+
+grade=59
+if [ $grade -ge 90 ] && [ $grade -le 100 ]
+then
+    echo "Excellent!"
+
+elif [ $grade -ge 80 ]
+then
+    echo "Good"
+
+elif [ $grade -lt 80 ] && [ $grade -ge 60 ]
+then
+    echo "OK, but try harder!"
+
+else 
+    echo "Do better next time"
+fi
+
+
+#!/bin/bash
+
+age=14
+grade=79
+
+if [ $age -gt 18 ]; then
+    echo "You are eligible based on age"
+    if [ $grade -gt 80 ]; then 
+        echo "You are eligible based on grade"
+        echo "Congratulations! You are eligible"
+    else
+        echo "Sorry your grade is not high enough"
+    fi
+else
+    echo "Sorry you are not eligible"
+fi
+
+#!/bin/bash
+
+for faad in $(seq 1 5)
+do
+    echo "faad: $faad"
+done
+
+for (( i=1; i<=5; i++))
+do
+    if [ $i -eq 3 ]
+    then 
+        continue
+    fi
+    echo "Number: $i"
+done
+
+#!/bin/bash
+
+hello_world() {
+    echo "Hello World!"
+}
+
+greet_person() {
+    local name="$1"
+    echo "Hello, $name!"
+
+}
+
+greet_person "Ahmed"
+greet_person "Gandu"
+
+print_args() {
+    echo "Number of arguments: $#"
+    echo "Script name: $0"
+    echo "First argument: $1"
+    echo "Second argument: $2"
+    echo "All arguments: $@"
+
+}
+
+print_args "Bodrul Ken" "Gandu"
