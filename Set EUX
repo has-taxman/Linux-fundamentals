@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+echo "Before the script"
+
+nonexistentcommand
+
+echo "After the script"
+
+
+
+#!/bin/bash
+
+set -u
+
+# echo "The value of variable X: $X"
+
+X=10
+Y=20
+Z=$((X + Y + W))
+echo "Z equals: $Z"
