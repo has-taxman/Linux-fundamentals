@@ -1,162 +1,65 @@
-#!/bin/bash
+Quick Notes: Introduction to Bash Scripting
 
-grade=59
-if [ $grade -ge 90 ] && [ $grade -le 100 ]
-then
-    echo "Excellent!"
+What is Bash Scripting?
+Bash: A command-line tool to interact with your computer.
+Bash Script: A file containing a series of commands you want the computer to execute automatically.
 
-elif [ $grade -ge 80 ]
-then
-    echo "Good"
+Why Learn It?
+Automate tasks: Save time on repetitive actions.
+Manage systems: Handle files, software installs, and system configurations.
+Boost efficiency: Get more done with less typing!
 
-elif [ $grade -lt 80 ] && [ $grade -ge 60 ]
-then
-    echo "OK, but try harder!"
+Getting Started
+Shebang (#!):
+The first line in your script: #!/bin/bash
+It tells the computer to use Bash to run the script.
 
-else 
-    echo "Do better next time"
-fi
+Run Your Script:
+Make it executable: chmod +x your_script.sh (You learn this in the Linux Module)
+Run it: ./your_script.sh
 
+Basic Concepts
 
-#!/bin/bash
+Variables:
+Store values: name="Ahmed"
+Use them: echo "Hello, $name"
 
-age=14
-grade=79
+Comments:
+Add explanations with #.
+Example: # This line says hello
 
-if [ $age -gt 18 ]; then
-    echo "You are eligible based on age"
-    if [ $grade -gt 80 ]; then 
-        echo "You are eligible based on grade"
-        echo "Congratulations! You are eligible"
-    else
-        echo "Sorry your grade is not high enough"
-    fi
-else
-    echo "Sorry you are not eligible"
-fi
+Conditionals:
+Make decisions with if statements.
+Example:
 
-#!/bin/bash
+if [ $name == "Alice" ]; then echo "Hi Alice!" fi
 
-for faad in $(seq 1 5)
-do
-    echo "faad: $faad"
-done
+Loops:
+Repeat actions with for or while.
+Example:
+for i in 1 2 3; do echo "Number $i" done
 
-for (( i=1; i<=5; i++))
-do
-    if [ $i -eq 3 ]
-    then 
-        continue
-    fi
-    echo "Number: $i"
-done
+Functions:
+Group commands for reuse.
+Example:
 
-#!/bin/bash
+greet() { echo "Hello, $1!" } greet "Alice"
 
-hello_world() {
-    echo "Hello World!"
-}
+User Input:
 
-greet_person() {
-    local name="$1"
-    echo "Hello, $name!"
+Get input from users.
+Example:
+read -p "Enter your name: " name echo "Hello, $name!"
 
-}
+Tips
+Start small: Write simple scripts first.
 
-greet_person "Ahmed"
-greet_person "Gandu"
+Use meaningful names: This makes your script easier to understand.
 
-print_args() {
-    echo "Number of arguments: $#"
-    echo "Script name: $0"
-    echo "First argument: $1"
-    echo "Second argument: $2"
-    echo "All arguments: $@"
+Test often: Avoid surprises by running your scripts frequently.
 
-}
+Practice Makes Perfect!
 
-print_args "Bodrul Ken" "Gandu"
+The more you script, the better you get. Try automating small tasks daily.
 
-#!/bin/bash
-
-# greet_user(){
-#    echo "What is your name?"
-#    read name
-#    echo "Hello, $name!"
-#}
-
-
-# greet_user
-
-greet(){
-    local name
-    if [ $# -eq 0 ]; then
-        echo "What is your name?"
-        read name
-    else
-        name="$1"
-    fi
-    echo "Hello, $name!"
-
-}
-greet "Hasnat"
-
-
-#!/bin/bash
-
-validate_age() {
-    local age=$1
-
-    if [[ ! $age =~ ^[0-9]+$ ]]; then
-        echo "Invalid age. Please provide a numeric value."
-        return 1
-    fi
-# Checks the user has entered appropriate data
-    if (( age < 18 )); then
-        echo "Sorry, you must be at least 18 years old."
-        return 1
-    fi
-
-    echo "Congratulations! You are eligible."
-    return 0
-}
-
-echo "Please enter your age"
-read user_age
-validate_age "$user_age"
-exit_code=$?
-
-if (( exit_code != 0 )); then
-    echo "Input validation failed."
-
-else
-    echo "Validation passed!"
-fi
-
-#!/bin/bash
-
-get_file_count(){
-    local directory="$1"
-    local file_count
-
-    file_count=$(ls "$directory" | wc -l)
-
-    echo "Number of files in $directory: $file_count"
-}
-
-get_file_count "/home/hasnat"
-
-
-#!/bin/bash
-
-num1=10
-num2=0
-
-if [ $num2 -eq 0 ]; then
-    echo "Division by zero is not allowed"
-    exit 1
-fi
-
-result=$((num1 / num2))
-
-echo "The result is: $result"
+Bash scripting becomes easier with repetition—keep at it!
