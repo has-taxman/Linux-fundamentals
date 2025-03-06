@@ -1,0 +1,18 @@
+#!/bin/bash
+
+grade=59
+if [ $grade -ge 90 ] && [ $grade -le 100 ]
+then
+    echo "Excellent!"
+
+elif [ $grade -ge 80 ]
+then
+    echo "Good"
+
+elif [ $grade -lt 80 ] && [ $grade -ge 60 ]
+then
+    echo "OK, but try harder!"
+
+else 
+    echo "Do better next time"
+fi
