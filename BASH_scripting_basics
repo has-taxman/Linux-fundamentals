@@ -76,3 +76,87 @@ print_args() {
 }
 
 print_args "Bodrul Ken" "Gandu"
+
+#!/bin/bash
+
+# greet_user(){
+#    echo "What is your name?"
+#    read name
+#    echo "Hello, $name!"
+#}
+
+
+# greet_user
+
+greet(){
+    local name
+    if [ $# -eq 0 ]; then
+        echo "What is your name?"
+        read name
+    else
+        name="$1"
+    fi
+    echo "Hello, $name!"
+
+}
+greet "Hasnat"
+
+
+#!/bin/bash
+
+validate_age() {
+    local age=$1
+
+    if [[ ! $age =~ ^[0-9]+$ ]]; then
+        echo "Invalid age. Please provide a numeric value."
+        return 1
+    fi
+# Checks the user has entered appropriate data
+    if (( age < 18 )); then
+        echo "Sorry, you must be at least 18 years old."
+        return 1
+    fi
+
+    echo "Congratulations! You are eligible."
+    return 0
+}
+
+echo "Please enter your age"
+read user_age
+validate_age "$user_age"
+exit_code=$?
+
+if (( exit_code != 0 )); then
+    echo "Input validation failed."
+
+else
+    echo "Validation passed!"
+fi
+
+#!/bin/bash
+
+get_file_count(){
+    local directory="$1"
+    local file_count
+
+    file_count=$(ls "$directory" | wc -l)
+
+    echo "Number of files in $directory: $file_count"
+}
+
+get_file_count "/home/hasnat"
+
+
+#!/bin/bash
+
+num1=10
+num2=0
+
+if [ $num2 -eq 0 ]; then
+    echo "Division by zero is not allowed"
+    exit 1
+fi
+
+result=$((num1 / num2))
+
+echo "The result is: $result"
