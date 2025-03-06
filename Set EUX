@@ -34,3 +34,15 @@ echo "The values of Z is: $Z"
 
 set +x
 echo "After the script"
+
+
+#!/bin/bash
+
+set -eux
+
+echo "This is a test"
+X=10
+# you can not set X, to see the error message X is unbound.
+echo "The values of X is: $X"
+
+nonexistentcommand
