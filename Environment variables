@@ -1,0 +1,11 @@
+#!/bin/bash
+
+my_home="$HOME"
+my_user="$USER"
+my_os="$OSTYPE"
+
+# We just assigned our local variables to the ENVIRONMENT VARIABLES
+
+echo "Home directory: $my_home"
+echo "Current user: $my_user"
+echo "OS type: $my_os"
