@@ -1,0 +1,23 @@
+Level 4
+#!/bin/bash
+
+# Source and destination directories
+SOURCE_DIR="/home/hasnat/Arena"
+DEST_DIR="/home/hasnat/Backup"
+
+# Check if the source directory exists
+if [ ! -d "$SOURCE_DIR" ]; then
+    echo "Source directory does not exist: $SOURCE_DIR"
+    exit 1
+fi
+
+# Check if the destination directory exists; if not, create it
+if [ ! -d "$DEST_DIR" ]; then
+    echo "Destination directory does not exist. Creating: $DEST_DIR"
+    mkdir -p "$DEST_DIR"
+fi
+
+# Copy all .txt files from source to destination
+cp "$SOURCE_DIR"/*.txt "$DEST_DIR"
+
+echo "All .txt files copied from $SOURCE_DIR to $DEST_DIR."
