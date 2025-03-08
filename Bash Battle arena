@@ -2,6 +2,7 @@ Level 2
 #!/bin/bash
 
 for i in $(seq 1 10)
+# for i in {1..10}
 do
     echo "Number: $i"
 done
@@ -9,8 +10,11 @@ done
 Level 3
 # Check if the file exists
 if [[ ! -e "/home/hasnat/Arena/hero.txt" ]]; then
+#if [ -f "Arena/hero.txt" ]; then
+# echo "Hero found!"
     echo "Hero missing."
-    exit 1
+else
+    echo "Hero found!"
 fi
 
 Level 4
