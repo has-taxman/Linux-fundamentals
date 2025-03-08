@@ -21,3 +21,66 @@ fi
 cp "$SOURCE_DIR"/*.txt "$DEST_DIR"
 
 echo "All .txt files copied from $SOURCE_DIR to $DEST_DIR."
+
+
+Level 5
+#!/bin/bash
+
+# Check if the source directory exists
+if [ ! -d "/home/hasnat/Battlefield" -o  "/home/hasnat/Archive" ]; then
+    mkdir -p "/home/hasnat/Archive" "/home/hasnat/Battlefield"
+fi
+
+touch "/home/hasnat/Battlefield/knight.txt"
+
+touch "/home/hasnat/Battlefield/sorcerer.txt"
+
+touch "/home/hasnat/Battlefield/rogue.txt"
+
+# Check if the file exists
+if [ -e "/home/hasnat/Battlefield/knight.txt" ]; then
+    echo "Knight has been found"
+
+# move Knight from Battlefield to Archive
+    mv "/home/hasnat/Battlefield/knight.txt" "/home/hasnat/Archive/"
+    echo "Knight has been killed"
+# List contents of Battlefield & Archive folder
+    echo "Contents of Battlefield:"
+    ls "/home/hasnat/Battlefield/"
+    
+    echo "Contents of Archive:"
+    ls "/home/hasnat/Archive/"
+
+else
+    echo "Knight is dead"
+    exit 1
+
+fi
+
+Level 6
+#!/bin/bash
+
+set -x
+
+
+count_lines(){
+
+local filename="$1"
+# Check if a filename is provided as an argument
+if [[ -z "$1" ]]; then
+    echo "No file provided."
+    exit 1
+fi
+# Check if the file exists
+if [[ ! -e "/home/hasnat/$filename" ]]; then
+    echo "File '$filename' does not exist."
+    exit 1
+fi
+# Count the number of lines in the file
+line_count=$(wc -l < "/home/hasnat/$filename")
+
+# Print the number of lines
+echo "Number of lines in $filename: $line_count"
+}
+
+count_lines "read.txt"
