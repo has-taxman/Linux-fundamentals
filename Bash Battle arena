@@ -1,4 +1,4 @@
-Level 2
+Level 2: Variables and Loops
 #!/bin/bash
 
 for i in $(seq 1 10)
@@ -7,7 +7,7 @@ do
     echo "Number: $i"
 done
 
-Level 3
+Level 3: Conditional Statements
 # Check if the file exists
 if [[ ! -e "/home/hasnat/Arena/hero.txt" ]]; then
 #if [ -f "Arena/hero.txt" ]; then
@@ -19,7 +19,7 @@ fi
 
 #if [ -f "Arena/hero.txt" ]; then: Checks if the file hero.txt exists.
 
-Level 4
+Level 4: File Manipulation
 #!/bin/bash
 
 # Source and destination directories
@@ -51,7 +51,7 @@ cp Arena/*.txt Backup/
 #cp Arena/*.txt Backup/: Copies all .txt files (uses * wildcard) from Arena to Backup.
 
 
-Level 5
+Level 5: Boss Battle 1 - Combining Basics
 #!/bin/bash
 
 # Check if the source directory exists
@@ -88,14 +88,10 @@ else
 
 fi
 
-Level 6
+Level 6: Argument Parsing
 #!/bin/bash
 
-set -x
-
-
 count_lines(){
-
 local filename="$1"
 # Check if a filename is provided as an argument
 if [[ -z "$1" ]]; then
