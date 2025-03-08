@@ -1,3 +1,13 @@
+Level 2
+#!/bin/bash
+
+for i in $(seq 1 10)
+do
+    echo "Number: $i"
+done
+
+
+
 Level 4
 #!/bin/bash
 
