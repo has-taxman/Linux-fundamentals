@@ -17,6 +17,8 @@ else
     echo "Hero found!"
 fi
 
+#if [ -f "Arena/hero.txt" ]; then: Checks if the file hero.txt exists.
+
 Level 4
 #!/bin/bash
 
@@ -41,6 +43,13 @@ cp "$SOURCE_DIR"/*.txt "$DEST_DIR"
 
 echo "All .txt files copied from $SOURCE_DIR to $DEST_DIR."
 
+Actual solution
+#!/bin/bash
+
+mkdir -p Backup
+cp Arena/*.txt Backup/
+#cp Arena/*.txt Backup/: Copies all .txt files (uses * wildcard) from Arena to Backup.
+
 
 Level 5
 #!/bin/bash
@@ -55,6 +64,9 @@ touch "/home/hasnat/Battlefield/knight.txt"
 touch "/home/hasnat/Battlefield/sorcerer.txt"
 
 touch "/home/hasnat/Battlefield/rogue.txt"
+
+#touch Battlefield/knight.txt Battlefield/sorcerer.txt Battlefield/rogue.txt
+#can do all 3 in a single line 
 
 # Check if the file exists
 if [ -e "/home/hasnat/Battlefield/knight.txt" ]; then
