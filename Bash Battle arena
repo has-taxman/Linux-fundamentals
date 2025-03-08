@@ -6,7 +6,12 @@ do
     echo "Number: $i"
 done
 
-
+Level 3
+# Check if the file exists
+if [[ ! -e "/home/hasnat/Arena/hero.txt" ]]; then
+    echo "Hero missing."
+    exit 1
+fi
 
 Level 4
 #!/bin/bash
