@@ -17,7 +17,7 @@ else
     echo "Hero found!"
 fi
 
-#if [ -f "Arena/hero.txt" ]; then: Checks if the file hero.txt exists.
+# if [ -f "Arena/hero.txt" ]; then: Checks if the file hero.txt exists.
 
 Level 4: File Manipulation
 #!/bin/bash
@@ -48,7 +48,7 @@ Actual solution
 
 mkdir -p Backup
 cp Arena/*.txt Backup/
-#cp Arena/*.txt Backup/: Copies all .txt files (uses * wildcard) from Arena to Backup.
+# cp Arena/*.txt Backup/: Copies all .txt files (uses * wildcard) from Arena to Backup.
 
 
 Level 5: Boss Battle 1 - Combining Basics
@@ -65,8 +65,8 @@ touch "/home/hasnat/Battlefield/sorcerer.txt"
 
 touch "/home/hasnat/Battlefield/rogue.txt"
 
-#touch Battlefield/knight.txt Battlefield/sorcerer.txt Battlefield/rogue.txt
-#can do all 3 in a single line 
+# touch Battlefield/knight.txt Battlefield/sorcerer.txt Battlefield/rogue.txt
+# can do all 3 in a single line 
 
 # Check if the file exists
 if [ -e "/home/hasnat/Battlefield/knight.txt" ]; then
