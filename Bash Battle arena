@@ -160,3 +160,38 @@ fswatch -r $DIRECTORY | while read change; do
         echo "$(date +'%Y-%m-%d %H:%M:%S') File deleted: $change" >> "$LOG_FILE"
     fi
 done
+
+
+Level 10: Boss Battle 2 - Intermediate Scripting
+#!/bin/bash
+# Create directories if they dont exist and touch files in Arena_Boss directory
+mkdir -p Arena_Boss
+mkdir -p Victory_Archive
+cd Arena_Boss
+touch file1.txt file2.txt file3.txt file4.txt file5.txt
+cd ..
+
+DIR="Arena_Boss"
+# For loop: For each file in this directory, generate random number of lines between 10-20 
+for file in "$DIR"/*; do
+    if [[ -f "$file" ]]; then
+        LINES=$(( RANDOM % 11 + 10 )) 
+        > "$file" # clear the file first
+        for (( i=1; i<=LINES; i++ )); do
+            echo "This is $i lines of $LINES in file $(basename "$file")" >> "$file"
+        done
+
+        echo "Generated "$LINES" lines in $(basename "$file")"
+    fi
+done
+
+echo "Victory" >> Arena_Boss/file1.txt
+# sort the files by size
+find "$DIR" -type f -exec ls -lh {} + | sort -k 5,5 -h | awk '{ print $5, $9 }'
+
+for file in "$DIR"/*; do
+    if grep -l "Victory" "$file"; then   #search for the word victory in a file and move it to another folder
+        mv "$file" "Victory_Archive"
+        echo "$file contains 'Victory' and has been moved to Victory_Archive."
+    fi
+done
