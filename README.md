@@ -1,4 +1,4 @@
-# Welcome to My Linux & Bash Scripting Journey 🚀
+# Welcome to My Linux & Bash Learning Journey 🚀
 
 Welcome to my space where I’m diving into Linux and Bash scripting! 🎉
 
